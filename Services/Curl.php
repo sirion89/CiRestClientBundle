@@ -81,7 +81,7 @@ class Curl implements CurlInterface {
      */
     public function sendRequest($url, $method, array $options = array(), $payload = '') {
         if (!$this->assertUrl($url))             return $this->invalidArgumentException('Invalid url given: ' . $url);
-        if (!$this->assertString($payload))      return $this->invalidArgumentException('Invalid payload given: ' . $payload);
+        //if (!$this->assertString($payload))      return $this->invalidArgumentException('Invalid payload given: ' . $payload); // Disabled to work with array aswell
         if (!$this->assertHttpMethod($method))   return $this->invalidArgumentException('Invalid http method given: ' . $method);
 
         $this->curlOptionsHandler->setOptions($options);
